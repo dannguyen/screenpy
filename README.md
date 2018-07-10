@@ -21,12 +21,12 @@ What it does:
 
     ```
     myfiles/images/some-screenshot.jpg
-<img src="myfiles/images/some-screenshot.jpg" alt="some-screenshot.jpg">
-![image some-screenshot.jpg](myfiles/images/some-screenshot.jpg)
-.. image:: myfiles/images/some-screenshot.jpg
-    :alt: some-screenshot.jpg
-.. figure:: myfiles/images/some-screenshot.jpg
-    :alt: some-screenshot.jpg
+    <img src="myfiles/images/some-screenshot.jpg" alt="some-screenshot.jpg">
+    ![image some-screenshot.jpg](myfiles/images/some-screenshot.jpg)
+    .. image:: myfiles/images/some-screenshot.jpg
+        :alt: some-screenshot.jpg
+    .. figure:: myfiles/images/some-screenshot.jpg
+        :alt: some-screenshot.jpg
     ```
 
 It's very useful when working in something like Jekyll or Sphinx, when you're inside a project directory in which you want to quickly save and refer to a bunch of screenshots.
