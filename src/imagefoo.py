@@ -16,7 +16,6 @@ PNG_FORMAT = 'png'
 PNG_COMPRESS_LEVEL_MAX = 9
 
 
-
 ################ HELPER FUNCTIONS
 def get_canonical_format_name(ofmt):
     o = ofmt.lower().strip()
@@ -30,7 +29,6 @@ def get_canonical_format_name(ofmt):
     else:
         oopsmsg = "Image output format or file extension was: %s\n It must be: %s" % (ofmt, ', '.join(APPROVED_FORMAT_ALIASES))
         raise IOError(oopsmsg)
-
 
 
 def get_pillow_save_params(format, quality_factor):

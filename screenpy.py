@@ -4,7 +4,7 @@ screenpy.py - a CLI wrapper around OSX's screencapture for easy screenshotting. 
               technical tutorials that require a lot of screenshots:
               http://2015.padjo.org/tutorials/mapping/077-ok-schools-quakes/
 
-Dependencies: Python 3.x, boto3 (for AWS S3 uploading), and PIL
+Dependencies: Python 3.x and PIL
 
 Standard usage:
 
@@ -25,15 +25,9 @@ Standard usage:
 
       <img src="/tmp/myimage.jpg" alt="hello.jpg">
 
-Integration with S3: If you aren't using a static site generator, sometimes you want a remote URL. Adjust the `S3`
-global variables to your liking (e.g. S3_BUCKET and S3_DOMAIN), and then call screenpy as so:
-
-      $ screenpy --s3 myonlinepicture.png
 """
+
 from src.cli import main as cli_main
-
-
-# http://stackoverflow.com/questions/89228/calling-an-external-command-in-python
 
 
 if __name__ == '__main__':

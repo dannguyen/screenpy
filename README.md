@@ -4,7 +4,6 @@ When writing documentation and guides, I take a lot of screenshots with [MacOS/B
 
 This **screenpy.py** script I've made (which I symlink to a system path as just `screenpy`) is used like this:
 
-
 ```sh
 $ screenpy ./myfiles/images/some-screenshot.png
 ```
@@ -17,7 +16,7 @@ What it does:
     - `i`: Capture screen in interactive mode (hit **Spacebar** to toggle between mouse-selection and window-selection)
     - `o`: Do not capture window shadow if in window-selection mode
     - `r`: Do not include screenshot meta data
-- Optimizes the saved image and saves it to `./myfiles/images/some-screenshot.png`
+- Uses the [Python Pillow library](http://pillow.readthedocs.io/) to optimize the image and saves it to `./myfiles/images/some-screenshot.png`
 - Outputs easy-to-copy-and-paste markup for my blog/guide/docs, e.g. 
 
     ```
@@ -30,8 +29,16 @@ What it does:
     :alt: some-screenshot.jpg
     ```
 
+It's very useful when working in something like Jekyll or Sphinx, when you're inside a project directory in which you want to quickly save and refer to a bunch of screenshots.
+
 
 ## More info
+
+
+Dependencies:
+
+- Python 3.x
+- [Pillow](http://pillow.readthedocs.io/)
 
 The `--help` docs:
 
