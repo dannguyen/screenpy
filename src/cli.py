@@ -43,7 +43,7 @@ def my_arg_parser():
         help="Do least amount of image optimization/compression" )
 
     parser.add_argument('--format', '-f',
-        help='Specify a format, such as jpg, png, gif' )
+        help='Specify a format, such as jpg, jpeg, png, gif, tiff, bmp' )
 
     parser.add_argument('--pause', '-p',
         default=2.5,
@@ -51,7 +51,7 @@ def my_arg_parser():
 
     parser.add_argument('--quality', '-q',
         help='Set a quality level from 0 to 100',
-        default=imgfoo.QUALITY_FACTOR_DEFAULT)
+        default=str(imgfoo.QUALITY_FACTOR_DEFAULT))
 
 #    parser.add_argument('--s3', '-s', help='Send to S3', action="store_true")
 

@@ -2,11 +2,13 @@ from datetime import datetime
 from PIL import Image
 from pathlib import Path
 
-APPROVED_FORMAT_ALIASES = ['jpg', 'jpeg', 'gif', 'png']
+APPROVED_FORMAT_ALIASES = ['bmp', 'jpg', 'jpeg', 'gif', 'png', 'tiff', ]
 QUALITY_FACTOR_DEFAULT = 75 # out of 100
 QUALITY_FACTOR_MAX = 100
 QUALITY_FACTOR_MIN = 0
 QUALITY_FACTOR_RANGE = range(QUALITY_FACTOR_MIN, QUALITY_FACTOR_MAX + 1)
+
+BMP_FORMAT = 'bmp'
 GIF_FORMAT = 'gif'
 JPEG_FORMAT = 'jpeg'
 # Pillow spec says 95 is highest
@@ -14,7 +16,8 @@ JPEG_FORMAT = 'jpeg'
 JPEG_QUALITY_MAX = 95
 PNG_FORMAT = 'png'
 PNG_COMPRESS_LEVEL_MAX = 9
-
+TIFF_FORMAT = 'tiff'
+TIFF_DEFAULT_COMPRESSION = 'tiff_lzw'
 
 ################ HELPER FUNCTIONS
 def get_canonical_format_name(ofmt):
@@ -26,6 +29,10 @@ def get_canonical_format_name(ofmt):
         return GIF_FORMAT
     elif o == 'png':
         return PNG_FORMAT
+    elif o == 'tiff':
+        return TIFF_FORMAT
+    elif o == 'bmp':
+        return BMP_FORMAT
     else:
         oopsmsg = "Image output format or file extension was: %s\n It must be: %s" % (ofmt, ', '.join(APPROVED_FORMAT_ALIASES))
         raise IOError(oopsmsg)
@@ -52,6 +59,10 @@ def get_pillow_save_params(format, quality_factor):
     elif format is GIF_FORMAT:
         # http://pillow.readthedocs.io/en/latest/handbook/image-file-formats
         args['optimize'] = quality_factor < QUALITY_FACTOR_MAX # optimize always, unless quality explicitly set to 100%
+    elif format is TIFF_FORMAT:
+        args['compression'] = TIFF_DEFAULT_COMPRESSION if quality_factor < QUALITY_FACTOR_MAX else 'raw'
+    elif format is BMP_FORMAT:
+        pass
     return args
 
 
